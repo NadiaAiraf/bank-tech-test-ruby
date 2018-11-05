@@ -29,13 +29,13 @@ if you want to create a new account you can do so as follows
 
 If you would like to note that you deposited money into your account on the 25th Dec 2018 you can do so with the following command:
 ```
-2.5.1 :004 > my_account.deposit(500,'12/1/18')
+2.5.1 :004 > my_account.deposit(500, '12/1/18')
  => [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}]
 ```
 
 If you would like to note that you withdrew money from your account on the 25th Dec 2018 you can do so with the following command:
 ```
-2.5.1 :004 > my_account.withdraw(100,'12/1/18')
+2.5.1 :004 > my_account.withdraw(100, '12/1/18')
 => [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}, {:date=>"12/1/18", :cr=>nil, :dr=>"100.00", :bal=>"400.00"}]
 ```
 
@@ -46,3 +46,11 @@ date || credit || debit || balance
 12/1/18 ||  || 100.00 || 400.00
 12/1/18 || 500.00 ||  || 500.00
 ```
+
+## Approch to the problem
+
+After having a look at the challenge I decided I would need a class to add/withdraw money to/from that also kept track of the current balance of the account. This became the `Account` class found in /lib/account.rb
+
+In order to keep a log of all transactions I decided to have a class `AccountHistory` that kept track of all of the transactions that had been made. It made sense for this class to initialise whenever a new Account class was initialised (which also made mocking in tests easier) and so whenever I withdrew or deposited I also wanted this new class to add a new transaction to it's log.
+
+Finally, in order to print out the transaction history from the AccountHistory class I had to create a new class `Display` which could take an account instance I created and manipulate the transactions into the form above. I reasoned that the method `print_statement` had no need to be in it's own instance and so I set it up as a class method
