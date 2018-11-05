@@ -1,9 +1,8 @@
 class Display
+  HEADINGS = %w[date credit debit balance].freeze
 
-  HEADINGS = ['date','credit','debit','balance']
-
-  def print_statement(account)
-
+  def print_statement(_account)
+    puts 'hello'
   end
 
   def join_line(array)
