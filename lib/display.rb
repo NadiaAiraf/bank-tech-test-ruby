@@ -3,15 +3,13 @@ class Display
 
   def print_statement(account)
     statement_text = join_line(HEADINGS)
-    statement_text += "\n" + account_history_line(account.account_history.all_transactions).join("\n")
+    account_array = account.account_history.all_transactions
+    statement_text += "\n" + account_history_line(account_array).join("\n")
     return statement_text
   end
 
   def account_history_line(array)
-    new_array = array.map do |element|
-      element.values.join(' || ')
-    end
-    return new_array
+    array.map{ |element| join_line(element.values) }
   end
 
   def join_line(array)
