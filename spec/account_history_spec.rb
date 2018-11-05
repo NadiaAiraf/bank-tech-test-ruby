@@ -6,6 +6,7 @@ describe AccountHistory do
       subject.credit_transaction('14/01/12', 200, 500)
       expect(subject.all_transactions).to eq [{ date: '14/01/12',
                                               credit: 200,
+                                              debit: nil,
                                               balance: 500 }]
     end
   end
@@ -14,6 +15,7 @@ describe AccountHistory do
     it 'adds a debit transaction to the account history array' do
       subject.debit_transaction('14/01/12', 200, 500)
       expect(subject.all_transactions).to eq [{ date: '14/01/12',
+                                              credit: nil,
                                               debit: 200,
                                               balance: 500 }]
     end
