@@ -5,17 +5,17 @@ class AccountHistory
     @all_transactions = []
   end
 
-  def credit_transaction(date, t_amount, t_balance)
+  def cr_transaction(date, t_amount, t_bal)
     @all_transactions.push(date: date,
-                           credit: format('%.2f', t_amount),
-                           debit: nil,
-                           balance: format('%.2f', t_balance))
+                           cr: format('%.2f', t_amount),
+                           dr: nil,
+                           bal: format('%.2f', t_bal))
   end
 
-  def debit_transaction(date, t_amount, t_balance)
+  def dr_transaction(date, t_amount, t_bal)
     @all_transactions.push(date: date,
-                           credit: nil,
-                           debit: format('%.2f', t_amount),
-                           balance: format('%.2f', t_balance))
+                           cr: nil,
+                           dr: format('%.2f', t_amount),
+                           bal: format('%.2f', t_bal))
   end
 end
