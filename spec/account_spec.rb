@@ -1,7 +1,11 @@
 require 'account'
 
 describe Account do
-  let(:mockAccountHistory) { double :history, cr_transaction: nil }
+  let(:mockAccountHistory) do
+    double :history,
+           cr_transaction: nil,
+           dr_transaction: nil
+  end
   subject { described_class.new(mockAccountHistory) }
 
   describe '#deposit' do

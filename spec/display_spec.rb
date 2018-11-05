@@ -27,7 +27,7 @@ describe Display do
   describe '#print_statement' do
     it 'takes a users account and returns their statement' do
       statement = "date || credit || debit || balance\n"\
-                  "14/01/12 || 200.23 ||  || 500.52"
+                  '14/01/12 || 200.23 ||  || 500.52'
       expect(subject.print_statement(mockAccount)).to eq statement
     end
   end

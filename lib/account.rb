@@ -13,9 +13,10 @@ class Account
     account_history.cr_transaction(time, amount, current_balance)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, time = Time.now)
     raise 'Insufficient funds' if insufficient_funds(amount)
     @current_balance -= amount
+    account_history.dr_transaction(time, amount, current_balance)
   end
 
   private
