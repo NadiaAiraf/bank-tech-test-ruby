@@ -17,4 +17,18 @@ describe Account do
       expect(subject.current_balance).to eq (20.50)
     end
   end
+
+  describe '#withdraw' do
+    it 'withdraws 500 from the account' do
+      subject.deposit(5000.00)
+      subject.withdraw(500.00)
+      expect(subject.current_balance).to eq (4500.00)
+    end
+
+    it 'withdraws 75.69 from the account' do
+      subject.deposit(5000.00)
+      subject.withdraw(75.69)
+      expect(subject.current_balance).to eq (4924.31)
+    end
+  end
 end

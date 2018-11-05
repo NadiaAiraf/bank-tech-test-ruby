@@ -5,7 +5,11 @@ class Account
     @current_balance = 0.00
   end
 
-  def deposit(num)
-    @current_balance += num
+  def deposit(amount)
+    @current_balance += amount
+  end
+
+  def withdraw(amount)
+    @current_balance -= amount
   end
 end
