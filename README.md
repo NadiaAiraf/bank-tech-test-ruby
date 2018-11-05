@@ -27,8 +27,22 @@ if you want to create a new account you can do so as follows
  => #<Account:0x00007fc3b9850528 @current_balance=0.0, @account_history=#<AccountHistory:0x00007fc3b9850500 @all_transactions=[]>>
 ```
 
-If you would like to deposit money into your account you can do so as follows
+If you would like to note that you deposited money into your account on the 25th Dec 2018 you can do so with the following command:
 ```
 2.5.1 :004 > my_account.deposit(500,'12/1/18')
  => [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}]
+```
+
+If you would like to note that you withdrew money from your account on the 25th Dec 2018 you can do so with the following command:
+```
+2.5.1 :004 > my_account.withdraw(100,'12/1/18')
+=> [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}, {:date=>"12/1/18", :cr=>nil, :dr=>"100.00", :bal=>"400.00"}]
+```
+
+Finally if you wanted to see a printout of all of your account transactions you can use the class `Display` and it's class method `print_statement` in the following way where my_account is the instance of your account:
+```
+2.5.1 :006 > Display.print_statement(my_account)
+date || credit || debit || balance
+12/1/18 ||  || 100.00 || 400.00
+12/1/18 || 500.00 ||  || 500.00
 ```
