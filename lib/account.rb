@@ -1,8 +1,9 @@
 class Account
   attr_reader :current_balance
 
-  def initialize
+  def initialize(account_history = AccountHistory.new)
     @current_balance = 0.00
+    @account_history = account_history
   end
 
   def deposit(amount)
