@@ -9,5 +9,4 @@ describe AccountHistory do
                                               balance: 500 }]
     end
   end
-
 end

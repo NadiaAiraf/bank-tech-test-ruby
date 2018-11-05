@@ -1,6 +1,9 @@
 require 'account'
 
 describe Account do
+  let(:mockAccountHistory) { double :history, credit_transaction: nil }
+  subject { described_class.new(mockAccountHistory) }
+
   describe '#deposit' do
     it 'adds £500 to the current balance' do
       subject.deposit(500.00)
@@ -15,6 +18,11 @@ describe Account do
     it 'adds £20.50 to the current balance' do
       subject.deposit(20.50)
       expect(subject.current_balance).to eq 20.50
+    end
+
+    it "calls the method credit_transaction" do
+      subject.deposit(1000)
+      expect(subject.account_history).to have_received(:credit_transaction)
     end
   end
 
