@@ -6,7 +6,7 @@ class Display
 
   end
 
-  def return_header
-    HEADINGS.join(' || ')
+  def join_line(array)
+    array.join(' || ')
   end
 end
