@@ -1,14 +1,11 @@
 class AccountHistory
-  attr_reader :account_history
+  attr_reader :all_transactions
 
   def initialize
-    @account_history = []
+    @all_transactions = []
   end
 
   def credit_transaction(date, t_amount, t_balance)
-    @account_history.push({ date: date,
-                            credit: t_amount,
-                            balance: t_balance })
+    @all_transactions.push(date: date, credit: t_amount, balance: t_balance)
   end
-
 end

@@ -20,7 +20,7 @@ describe Account do
       expect(subject.current_balance).to eq 20.50
     end
 
-    it "calls the method credit_transaction" do
+    it 'calls the method credit_transaction' do
       subject.deposit(1000)
       expect(subject.account_history).to have_received(:credit_transaction)
     end

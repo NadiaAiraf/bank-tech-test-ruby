@@ -1,3 +1,5 @@
+require_relative 'account_history'
+
 class Account
   attr_reader :current_balance, :account_history
 
