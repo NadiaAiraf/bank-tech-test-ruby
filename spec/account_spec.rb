@@ -34,5 +34,10 @@ describe Account do
     it 'errors when no money is in the account' do
       expect{ subject.withdraw(100) }.to raise_error "Insufficient funds"
     end
+
+    it 'errors when money in account is not sufficient is in the account' do
+      subject.deposit(100)
+      expect{ subject.withdraw(101) }.to raise_error "Insufficient funds"
+    end
   end
 end
