@@ -26,4 +26,16 @@ describe Display do
       expect(subject.print_statement(mockAccount)).to eq statement
     end
   end
+
+  describe '#account_history_line' do
+    it 'takes an array of hashes and returns array of arrays' do
+      hash_array = [{ date: '1/1/1', credit: '200.00', debit: nil, balance: '2500.00' },
+                    { date: '2/2/2', credit: '300.00', debit: nil, balance: '2800.00' },
+                    { date: '3/3/3', credit: '100.00', debit: nil, balance: '2900.00' }]
+      answer_array = ["1/1/1 || 200.00 ||  || 2500.00",
+                      "2/2/2 || 300.00 ||  || 2800.00",
+                      "3/3/3 || 100.00 ||  || 2900.00"]
+      expect(subject.account_history_line(hash_array)).to eq answer_array
+    end
+  end
 end
