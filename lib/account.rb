@@ -10,7 +10,7 @@ class Account
 
   def deposit(amount, time = Time.now)
     @current_balance += amount
-    account_history.credit_transaction(time, amount, current_balance)
+    account_history.cr_transaction(time, amount, current_balance)
   end
 
   def withdraw(amount)
