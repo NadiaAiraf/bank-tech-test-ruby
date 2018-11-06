@@ -19,4 +19,10 @@ RSpec.describe 'User interface' do
     account.withdraw(385.25,'02/01/18')
     expect{ Display.print_statement(account) }.to output(answer).to_stdout
   end
+
+  it 'will error when you try to take more money than you have' do
+    account = Account.new
+    account.deposit(450.73,'01/01/18')
+    expect{ account.withdraw(999,'02/01/18') }.to raise_error "Insufficient funds"
+  end
 end
