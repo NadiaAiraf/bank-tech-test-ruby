@@ -5,7 +5,7 @@ describe Account do
     double :history,
            cr_transaction: nil,
            dr_transaction: nil,
-           all_transactions: nil
+           all_transactions: []
   end
   subject { described_class.new(mockAccountHistory) }
 
@@ -60,9 +60,9 @@ describe Account do
     end
   end
 
-  describe '#get_transactions' do
+  describe '#transactions_reversed' do
     it 'calls the all_transactions method from the AccountHistory instance' do
-      subject.account_transactions
+      subject.transactions_reversed
       expect(subject.account_history).to have_received(:all_transactions)
     end
   end

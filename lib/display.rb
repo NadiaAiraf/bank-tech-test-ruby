@@ -3,7 +3,7 @@ class Display
 
   def self.print_statement(account)
     puts HEADINGS.join(' || ')
-    account_array = account.account_transactions.reverse
+    account_array = account.transactions_reversed
     account_array.each do |element|
       print_line(element)
     end

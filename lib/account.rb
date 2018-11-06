@@ -19,8 +19,8 @@ class Account
     account_history.dr_transaction(amount, current_balance)
   end
 
-  def account_transactions
-    @account_history.all_transactions
+  def transactions_reversed
+    @account_history.all_transactions.reverse
   end
 
   private

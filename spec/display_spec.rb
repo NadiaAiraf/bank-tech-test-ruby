@@ -2,7 +2,7 @@ require 'display'
 
 describe Display do
   let(:mockAccount) do
-    double :account, account_transactions: [{
+    double :account, transactions_reversed: [{
       date: '14/01/12',
       cr: '200.23',
       dr: nil,
