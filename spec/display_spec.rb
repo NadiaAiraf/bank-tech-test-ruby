@@ -26,8 +26,8 @@ describe Display do
   describe '#print_statement' do
     it 'takes a users account and returns their statement' do
       statement = "date || credit || debit || balance\n"\
-                  '14/01/12 || 200.23 ||  || 500.52'
-      expect(Display.print_statement(mockAccount)).to eq statement
+                  "14/01/12 || 200.23 ||  || 500.52\n"
+      expect{ Display.print_statement(mockAccount) }.to output(statement).to_stdout
     end
   end
 

@@ -6,7 +6,6 @@ class Display
     account_array = account.get_transactions
     statement_text += "\n" + account_history_line(account_array).join("\n")
     puts statement_text
-    statement_text
   end
 
   def self.account_history_line(array)
