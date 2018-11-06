@@ -8,15 +8,15 @@ class Account
     @account_history = account_history
   end
 
-  def deposit(amount, time)
+  def deposit(amount)
     @current_balance += amount
-    account_history.cr_transaction(time, amount, current_balance)
+    account_history.cr_transaction(amount, current_balance)
   end
 
-  def withdraw(amount, time)
+  def withdraw(amount)
     raise 'Insufficient funds' if insufficient_funds(amount)
     @current_balance -= amount
-    account_history.dr_transaction(time, amount, current_balance)
+    account_history.dr_transaction(amount, current_balance)
   end
 
   def account_transactions

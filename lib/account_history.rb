@@ -5,14 +5,14 @@ class AccountHistory
     @all_transactions = []
   end
 
-  def cr_transaction(date, t_amount, t_bal)
+  def cr_transaction(t_amount, t_bal)
     @all_transactions.push(date: date,
                            cr: format('%.2f', t_amount),
                            dr: nil,
                            bal: format('%.2f', t_bal))
   end
 
-  def dr_transaction(date, t_amount, t_bal)
+  def dr_transaction(t_amount, t_bal)
     @all_transactions.push(date: date,
                            cr: nil,
                            dr: format('%.2f', t_amount),
