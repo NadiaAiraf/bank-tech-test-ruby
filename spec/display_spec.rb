@@ -2,7 +2,7 @@ require 'display'
 
 describe Display do
   let(:mockAccount) do
-    double :account, get_transactions: [{
+    double :account, account_transactions: [{
       date: '14/01/12',
       cr: '200.23',
       dr: nil,
@@ -27,7 +27,7 @@ describe Display do
     it 'takes a users account and returns their statement' do
       statement = "date || credit || debit || balance\n"\
                   "14/01/12 || 200.23 ||  || 500.52\n"
-      expect{ Display.print_statement(mockAccount) }.to output(statement).to_stdout
+      expect { Display.print_statement(mockAccount) }.to output(statement).to_stdout
     end
   end
 

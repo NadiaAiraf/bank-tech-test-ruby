@@ -19,7 +19,7 @@ class Account
     account_history.dr_transaction(time, amount, current_balance)
   end
 
-  def get_transactions
+  def account_transactions
     @account_history.all_transactions
   end
 

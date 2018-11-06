@@ -62,7 +62,7 @@ describe Account do
 
   describe '#get_transactions' do
     it 'calls the all_transactions method from the AccountHistory instance' do
-      subject.get_transactions
+      subject.account_transactions
       expect(subject.account_history).to have_received(:all_transactions)
     end
   end

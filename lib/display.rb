@@ -3,7 +3,7 @@ class Display
 
   def self.print_statement(account)
     statement_text = join_line(HEADINGS)
-    account_array = account.get_transactions
+    account_array = account.account_transactions
     statement_text += "\n" + account_history_line(account_array).join("\n")
     puts statement_text
   end
