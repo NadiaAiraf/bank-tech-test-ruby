@@ -15,7 +15,9 @@ This first test is to mimic some interactions of a bank account, specifically de
 5. enter the command `require './lib/account'`
 6. enter the command `require './lib/display'`
 
-From this point on you've got everything needed to run the program on the irb shell. If you wanted to run the tests simply use the command `rspec` whilst not in the irb shell. Otherwise please find the 'How to use' section for examples on how to run each command
+In order to run all of the tests type the command `rspec` into the command line, there are currently 18 tests with 100% test coverage.
+
+From this point on you've got everything needed to run the program on the irb shell. Please find the 'How to use' section for examples on how to run each command
 
 ## How to use
 
