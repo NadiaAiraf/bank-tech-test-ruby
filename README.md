@@ -23,7 +23,7 @@ From this point on you've got everything needed to run the program on the irb sh
 
 The following assumes you've run steps 1-6 in the 'How to run' section.
 
-Please note: on withdrawing or depositing money, you need to add the date manually. I have had this working as an automatic thing previously however the acceptance criteria lead me to believe it was asking you to submit specific dates that money was being deposited/withdrawn.
+Please note: the date that your withdrawal or deposit is entered is the current date which is done automatically.
 
 if you want to create a new account you can do so as follows
 ```
@@ -33,13 +33,13 @@ if you want to create a new account you can do so as follows
 
 If you would like to note that you deposited money into your account on the 25th Dec 2018 you can do so with the following command.
 ```
-2.5.1 :004 > my_account.deposit(500, '12/1/18')
+2.5.1 :004 > my_account.deposit(500)
  => [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}]
 ```
 
 If you would like to note that you withdrew money from your account on the 25th Dec 2018 you can do so with the following command:
 ```
-2.5.1 :004 > my_account.withdraw(100, '12/1/18')
+2.5.1 :004 > my_account.withdraw(100)
 => [{:date=>"12/1/18", :cr=>"500.00", :dr=>nil, :bal=>"500.00"}, {:date=>"12/1/18", :cr=>nil, :dr=>"100.00", :bal=>"400.00"}]
 ```
 
@@ -47,8 +47,8 @@ Finally if you wanted to see a printout of all of your account transactions you 
 ```
 2.5.1 :006 > Display.print_statement(my_account)
 date || credit || debit || balance
-12/1/18 ||  || 100.00 || 400.00
-12/1/18 || 500.00 ||  || 500.00
+12/01/2018 ||  || 100.00 || 400.00
+12/01/2018 || 500.00 ||  || 500.00
 ```
 
 ## Approch to the problem
