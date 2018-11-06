@@ -1,18 +1,15 @@
 class Display
-  HEADINGS = %w[date credit debit balance].freeze
+  HEADINGS = ['date', 'credit', 'debit', 'balance']
 
   def self.print_statement(account)
-    statement_text = join_line(HEADINGS)
-    account_array = account.account_transactions
-    statement_text += "\n" + account_history_line(account_array).join("\n")
-    puts statement_text
+    puts HEADINGS.join(' || ')
+    account_array = account.account_transactions.reverse
+    account_array.each do |element|
+      print_line(element)
+    end
   end
 
-  def self.account_history_line(array)
-    array.map { |element| join_line(element.values) }.reverse
-  end
-
-  def self.join_line(array)
-    array.join(' || ')
+  def self.print_line(hash)
+    puts hash.values.join(' || ')
   end
 end
