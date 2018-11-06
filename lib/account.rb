@@ -19,6 +19,10 @@ class Account
     account_history.dr_transaction(time, amount, current_balance)
   end
 
+  def get_transactions
+    @account_history.all_transactions
+  end
+
   private
 
   def insufficient_funds(amount)

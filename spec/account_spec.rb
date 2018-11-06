@@ -4,7 +4,8 @@ describe Account do
   let(:mockAccountHistory) do
     double :history,
            cr_transaction: nil,
-           dr_transaction: nil
+           dr_transaction: nil,
+           all_transactions: nil
   end
   subject { described_class.new(mockAccountHistory) }
 
@@ -56,6 +57,13 @@ describe Account do
     it 'errors when money in account is not sufficient is in the account' do
       subject.deposit(100, '25/12/18')
       expect { subject.withdraw(101, '25/12/18') }.to raise_error 'Insufficient funds'
+    end
+  end
+
+  describe '#get_transactions' do
+    it 'calls the all_transactions method from the AccountHistory instance' do
+      subject.get_transactions
+      expect(subject.account_history).to have_received(:all_transactions)
     end
   end
 end

@@ -1,9 +1,8 @@
 require 'display'
 
 describe Display do
-  let(:mockAccount) { double :account, account_history: mockAccountHistory }
-  let(:mockAccountHistory) do
-    double :account, all_transactions: [{
+  let(:mockAccount) do
+    double :account, get_transactions: [{
       date: '14/01/12',
       cr: '200.23',
       dr: nil,
