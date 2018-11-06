@@ -1,6 +1,10 @@
 require 'account_history'
 
 describe AccountHistory do
+  before :each do
+    Timecop.freeze(Time.local(2012, 1, 14, 10, 5, 0))
+  end
+
   describe '#cr_transaction' do
     it 'adds a credit transaction to the account history array' do
       subject.cr_transaction(200, 500)
