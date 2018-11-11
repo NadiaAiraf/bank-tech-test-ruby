@@ -6,20 +6,16 @@ class AccountHistory
   end
 
   def cr_transaction(t_amount, t_bal)
-    @all_transactions.push(date: formatted_time,
-                           cr: format('%.2f', t_amount),
+    @all_transactions.push(date: Time.now,
+                           cr: t_amount,
                            dr: nil,
-                           bal: format('%.2f', t_bal))
+                           bal: t_bal)
   end
 
   def dr_transaction(t_amount, t_bal)
-    @all_transactions.push(date: formatted_time,
+    @all_transactions.push(date: Time.now,
                            cr: nil,
-                           dr: format('%.2f', t_amount),
-                           bal: format('%.2f', t_bal))
-  end
-
-  def formatted_time
-    Time.now.strftime("%d/%m/%Y")
+                           dr: t_amount,
+                           bal: t_bal)
   end
 end
